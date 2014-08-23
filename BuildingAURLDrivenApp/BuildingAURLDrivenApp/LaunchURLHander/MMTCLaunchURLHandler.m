@@ -4,6 +4,11 @@
 //
 
 #import "MMTCLaunchURLHandler.h"
+#import "MMTCPresenter.h"
+
+@interface MMTCLaunchURLHandler ()
+@property (nonatomic, strong, readonly) MMTCPresenter *presenter;
+@end
 
 @implementation MMTCLaunchURLHandler
 
@@ -20,10 +25,12 @@ NSString *MMTCLaunchURLHandlerShowViewControllerBlue = @"blue";
     if([path length] == 0) return NO;
     
     if([path caseInsensitiveCompare:MMTCLaunchURLHandlerShowViewControllerRed] == NSOrderedSame) {
+        [[self presenter] pushRedController];
         return YES;
     }
     
     if([path caseInsensitiveCompare:MMTCLaunchURLHandlerShowViewControllerBlue] == NSOrderedSame) {
+        [[self presenter] pushBlueController];
         return YES;
     }
     
@@ -49,7 +56,9 @@ NSString *MMTCLaunchURLHandlerShowViewControllerBlue = @"blue";
     return [self openURLPathForShowingSpecificViewController:lastPathComponent];
 }
 
--(BOOL)application:(UIApplication *)application openURL:(NSURL *)URL sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+-(BOOL)openURL:(NSURL *)URL
+sourceApplication:(NSString *)sourceApplication
+    annotation:(id)annotation
 {
     if(URL == nil) return NO;
     
@@ -70,9 +79,22 @@ NSString *MMTCLaunchURLHandlerShowViewControllerBlue = @"blue";
 
 #pragma mark - 
 
-+(instancetype)handler
+-(instancetype)initWithPresenter:(MMTCPresenter*)presenter
 {
-    return [[self alloc] init];
+    NSParameterAssert(presenter != nil);
+    
+    self = [super init];
+    
+    if(self) {
+        _presenter = presenter;
+    }
+    
+    return self;
+}
+
++(instancetype)handlerWithPresenter:(MMTCPresenter*)presenter
+{
+    return [[self alloc] initWithPresenter:presenter];
 }
 
 @end

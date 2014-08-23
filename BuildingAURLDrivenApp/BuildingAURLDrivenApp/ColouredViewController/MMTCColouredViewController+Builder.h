@@ -7,6 +7,8 @@
 
 @interface MMTCColouredViewController (Builder)
 
++(instancetype)controllerWithRedBackgroundColor;
 
++(instancetype)controllerWithBlueBackgroundColor;
 
 @end

@@ -7,14 +7,17 @@
 #import <Foundation/Foundation.h>
 
 @class UIApplication;
+@class MMTCPresenter;
 
 @interface MMTCLaunchURLHandler : NSObject
 
 extern NSString *MMTCLaunchURLHandlerScheme;
 extern NSString *MMTCLaunchURLHandlerHost;
 
--(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation;
+-(BOOL)openURL:(NSURL *)url
+ sourceApplication:(NSString *)sourceApplication
+        annotation:(id)annotation;
 
-+(instancetype)handler;
++(instancetype)handlerWithPresenter:(MMTCPresenter*)presenter;
 
 @end

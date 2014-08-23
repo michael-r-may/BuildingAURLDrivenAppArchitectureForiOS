@@ -22,6 +22,8 @@
 
 -(instancetype)initWithBackgroundColor:(UIColor*)backgroundColor
 {
+    NSParameterAssert(backgroundColor != nil);
+    
     self = [super initWithNibName:nil bundle:nil];
     
     if(self) {

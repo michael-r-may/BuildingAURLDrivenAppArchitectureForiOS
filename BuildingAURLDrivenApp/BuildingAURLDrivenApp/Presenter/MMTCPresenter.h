@@ -7,6 +7,10 @@
 
 @interface MMTCPresenter : NSObject
 
-+(instancetype)presenter;
+-(void)pushRedController;
+
+-(void)pushBlueController;
+
++(instancetype)presenterWithNavigationController:(UINavigationController*)navigationController;
 
 @end
