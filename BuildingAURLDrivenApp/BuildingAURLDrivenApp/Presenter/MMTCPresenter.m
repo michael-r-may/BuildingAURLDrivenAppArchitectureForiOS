@@ -3,10 +3,13 @@
 //  Copyright (c) 2014 Michael May & Tim Chilvers. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MMTCPresenter.h"
 
-@interface MMTCViewController : UIViewController
+@implementation MMTCPresenter
 
-+(instancetype)controller;
++(instancetype)presenter
+{
+    return [[self alloc] init];
+}
 
 @end

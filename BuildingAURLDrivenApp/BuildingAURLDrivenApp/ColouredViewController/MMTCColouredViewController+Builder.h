@@ -3,10 +3,10 @@
 //  Copyright (c) 2014 Michael May & Tim Chilvers. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MMTCColouredViewController.h"
 
-@interface MMTCViewController : UIViewController
+@interface MMTCColouredViewController (Builder)
 
-+(instancetype)controller;
+
 
 @end

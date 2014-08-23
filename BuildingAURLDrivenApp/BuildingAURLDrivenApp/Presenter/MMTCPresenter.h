@@ -3,10 +3,10 @@
 //  Copyright (c) 2014 Michael May & Tim Chilvers. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-@interface MMTCViewController : UIViewController
+@interface MMTCPresenter : NSObject
 
-+(instancetype)controller;
++(instancetype)presenter;
 
 @end

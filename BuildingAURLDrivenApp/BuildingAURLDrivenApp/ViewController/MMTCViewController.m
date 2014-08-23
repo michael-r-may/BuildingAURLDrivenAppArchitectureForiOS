@@ -1,29 +1,24 @@
 //
-//  MMTCViewController.m
-//  BuildingAURLDrivenApp
-//
 //  Created by Developer on 2014/08/23.
 //  Copyright (c) 2014 Michael May & Tim Chilvers. All rights reserved.
 //
 
 #import "MMTCViewController.h"
 
-@interface MMTCViewController ()
-
-@end
-
 @implementation MMTCViewController
 
-- (void)viewDidLoad
+-(instancetype)init
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    self = [super initWithNibName:@"MMTCViewController" bundle:nil];
+    
+    return self;
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - 
+
++(instancetype)controller
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    return [[self alloc] init];
 }
 
 @end

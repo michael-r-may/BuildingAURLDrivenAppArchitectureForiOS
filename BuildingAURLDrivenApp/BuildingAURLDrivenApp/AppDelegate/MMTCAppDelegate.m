@@ -4,6 +4,7 @@
 //
 
 #import "MMTCAppDelegate.h"
+#import "MMTCViewController.h"
 
 #import "MMTCLaunchURLHandler.h"
 
@@ -15,6 +16,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    self.window.rootViewController = [MMTCViewController controller];
+    
+    [self.window makeKeyAndVisible];
+    
+    // TODO: handle URL in launchOptions
+    
     return YES;
 }
 
