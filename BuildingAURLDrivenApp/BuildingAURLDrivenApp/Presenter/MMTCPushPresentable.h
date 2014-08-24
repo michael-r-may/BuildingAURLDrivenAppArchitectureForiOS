@@ -7,9 +7,11 @@
 
 #import "MMTCPresentableProtocol.h"
 
+typedef UIViewController* (^MMTCPushPresentableBuilder)();
+
 @interface MMTCPushPresentable : NSObject <MMTCPresentableProtocol>
 
 +(instancetype)pushPresentableWithNavigationController:(UINavigationController*)navigationController
-                                        viewController:(UIViewController*)viewController;
+                                               builder:(MMTCPushPresentableBuilder)builder;
 
 @end

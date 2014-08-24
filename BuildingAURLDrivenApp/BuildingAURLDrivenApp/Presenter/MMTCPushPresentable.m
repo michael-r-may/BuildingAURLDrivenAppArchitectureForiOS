@@ -7,15 +7,17 @@
 
 @interface MMTCPushPresentable ()
 @property (nonatomic, strong, readonly) UINavigationController *navigationController;
-@property (nonatomic, strong, readonly) UIViewController* viewController;
+@property (nonatomic, strong, readonly) MMTCPushPresentableBuilder builder;
 @end
 
 @implementation MMTCPushPresentable
 
 -(void)present
 {
+    UIViewController* viewController = self.builder(self.navigationController);
+    
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[self navigationController] pushViewController:[self viewController] animated:YES];
+        [[self navigationController] pushViewController:viewController animated:YES];
     });
 }
 
@@ -29,22 +31,22 @@
 #pragma mark -
 
 -(instancetype)initWithNavigationController:(UINavigationController*)navigationController
-                             viewController:(UIViewController*)viewController
+                             builder:(MMTCPushPresentableBuilder)builder
 {
     self = [super init];
     
     if(self) {
         _navigationController = navigationController;
-        _viewController = viewController;
+        _builder = builder;
     }
     
     return self;
 }
 
 +(instancetype)pushPresentableWithNavigationController:(UINavigationController*)navigationController
-                                        viewController:(UIViewController*)viewController
+                                               builder:(MMTCPushPresentableBuilder)builder
 {
-    return [[self alloc] initWithNavigationController:navigationController viewController:viewController];
+    return [[self alloc] initWithNavigationController:navigationController builder:builder];
 }
 
 @end

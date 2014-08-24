@@ -18,20 +18,25 @@
 NSString *MMTCLaunchURLHandlerShowViewControllerRed = @"red";
 NSString *MMTCLaunchURLHandlerShowViewControllerBlue = @"blue";
 
--(id<MMTCPresentableProtocol>)pushRedController
+-(id<MMTCPresentableProtocol>)pushRedPresentable
 {
-    UIViewController *redController = [MMTCColouredViewController controllerWithRedBackgroundColor];
- 
-    return [MMTCPushPresentable pushPresentableWithNavigationController:[self navigationController]
-                                                          viewController:redController];
-}
-
--(id<MMTCPresentableProtocol>)pushBlueController
-{
-    UIViewController *redController = [MMTCColouredViewController controllerWithRedBackgroundColor];
+    MMTCPushPresentableBuilder redBuilder = ^{
+        return [MMTCColouredViewController controllerWithRedBackgroundColor];
+    };
     
     return [MMTCPushPresentable pushPresentableWithNavigationController:[self navigationController]
-                                                         viewController:redController];
+                                                                builder:redBuilder];
+}
+
+-(id<MMTCPresentableProtocol>)pushBluePresentable
+{
+    MMTCPushPresentableBuilder blueBuilder = ^{
+        return [MMTCColouredViewController controllerWithBlueBackgroundColor];
+    };
+    
+    return [MMTCPushPresentable pushPresentableWithNavigationController:[self navigationController]
+                                                                builder:blueBuilder];
+
 }
 
 #pragma mark -
@@ -87,8 +92,8 @@ NSString *MMTCLaunchURLHandlerShowViewControllerBlue = @"blue";
     if(self) {
         _navigationController = navigationController;
         
-        _pathMap = @{MMTCLaunchURLHandlerShowViewControllerRed : [self pushRedController],
-                     MMTCLaunchURLHandlerShowViewControllerBlue : [self pushBlueController]};
+        _pathMap = @{MMTCLaunchURLHandlerShowViewControllerRed : [self pushRedPresentable],
+                     MMTCLaunchURLHandlerShowViewControllerBlue : [self pushBluePresentable]};
     }
     
     return self;
