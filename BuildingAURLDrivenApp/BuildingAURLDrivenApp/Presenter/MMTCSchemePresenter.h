@@ -9,4 +9,7 @@
 
 @interface MMTCSchemePresenter : NSObject <MMTCPresenterProtocol>
 
+extern NSString *MMTCLaunchURLHandlerScheme;
+extern NSString *MMTCMailToScheme;
+
 @end

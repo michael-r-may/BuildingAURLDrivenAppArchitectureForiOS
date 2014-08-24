@@ -9,4 +9,6 @@
 
 @interface MMTCHostPresenter : NSObject <MMTCPresenterProtocol>
 
+extern NSString *MMTCLaunchURLHandlerHost;
+
 @end

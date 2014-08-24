@@ -18,6 +18,8 @@
 sourceApplication:(NSString *)sourceApplication
     annotation:(id)annotation
 {
+    if(URL == nil) return NO;
+    
     id<MMTCPresentableProtocol> presentable = [[self presenter] presenterForURL:URL];
     
     if(presentable) {
