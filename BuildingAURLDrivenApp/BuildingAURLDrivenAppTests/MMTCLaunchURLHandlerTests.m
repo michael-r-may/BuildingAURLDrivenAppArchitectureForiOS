@@ -87,7 +87,6 @@
     MMTCPresenter *presenter = [MMTCPresenter presenterWithNavigationController:navigationController];
     MMTCLaunchURLHandler* handler = [MMTCLaunchURLHandler handlerWithPresenter:presenter];
 
-    id application = nil;
     NSURL *URLToHandle = [[NSURL alloc] initWithScheme:MMTCLaunchURLHandlerScheme host:@"10.0.0.128" path:@"/viewcontroller/one"];
     NSString *sourceApplication = @"MMTCLaunchURLHandlerTests";
     id annotation = nil;
