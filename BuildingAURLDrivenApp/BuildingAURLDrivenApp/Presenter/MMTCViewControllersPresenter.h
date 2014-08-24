@@ -5,8 +5,9 @@
 
 #import <Foundation/Foundation.h>
 
+#import "MMTCPresenterBase.h"
 #import "MMTCPresenterProtocol.h"
 
-@interface MMTCViewControllersPresenter : NSObject <MMTCPresenterProtocol>
+@interface MMTCViewControllersPresenter : MMTCPresenterBase <MMTCPresenterProtocol>
 
 @end

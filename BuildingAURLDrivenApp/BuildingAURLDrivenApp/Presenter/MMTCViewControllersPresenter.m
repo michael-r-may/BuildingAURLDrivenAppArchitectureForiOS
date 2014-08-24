@@ -8,77 +8,40 @@
 #import "MMTCColouredViewController+Builder.h"
 #import "MMTCPushPresentable.h"
 
-@interface MMTCViewControllersPresenter ()
-@property (nonatomic, strong, readonly) NSDictionary *pathMap;
-@property (nonatomic, weak, readonly) UINavigationController* navigationController;
-@end
-
 @implementation MMTCViewControllersPresenter
 
 NSString *MMTCLaunchURLHandlerShowViewControllerRed = @"red";
 NSString *MMTCLaunchURLHandlerShowViewControllerBlue = @"blue";
 
--(id<MMTCPresentableProtocol>)pushRedPresentable
+-(id<MMTCPresentableProtocol>)pushRedPresentableWithNavigationController:(UINavigationController*)navigationController
 {
     MMTCPushPresentableBuilder redBuilder = ^{
         return [MMTCColouredViewController controllerWithRedBackgroundColor];
     };
     
-    return [MMTCPushPresentable pushPresentableWithNavigationController:[self navigationController]
+    return [MMTCPushPresentable pushPresentableWithNavigationController:navigationController
                                                                 builder:redBuilder];
 }
 
--(id<MMTCPresentableProtocol>)pushBluePresentable
+-(id<MMTCPresentableProtocol>)pushBluePresentableWithNavigationController:(UINavigationController*)navigationController
 {
     MMTCPushPresentableBuilder blueBuilder = ^{
         return [MMTCColouredViewController controllerWithBlueBackgroundColor];
     };
     
-    return [MMTCPushPresentable pushPresentableWithNavigationController:[self navigationController]
+    return [MMTCPushPresentable pushPresentableWithNavigationController:navigationController
                                                                 builder:blueBuilder];
 
 }
 
 #pragma mark -
 
--(NSArray*)pathComponentsFromURL:(NSURL*)URL
-{
-    NSURLComponents *components = [[NSURLComponents alloc] initWithURL:URL resolvingAgainstBaseURL:NO];
-    if(components == nil) return nil;
-    
-    NSString *path = [components path];
-    
-    path = [path stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"/"]];
-    
-    NSArray *pathComponents = [path componentsSeparatedByString:@"/"];
-    
-    return pathComponents;
-}
-
-#pragma mark -
-
 -(id<MMTCPresentableProtocol>)presenterForURL:(NSURL *)URL
 {
-    NSArray *pathComponentsFromURL = [self pathComponentsFromURL:URL];
+    NSArray *pathComponentsFromURL = [super pathComponentsFromURL:URL];
     NSString *lastPathComponent = [pathComponentsFromURL lastObject];
     
-    NSDictionary *pathMap = self.pathMap;
-    NSArray *allKnownPaths = [pathMap allKeys];
-    
-    for(NSString *host in allKnownPaths) {
-        if([host caseInsensitiveCompare:lastPathComponent] == NSOrderedSame) {
-            id presenter = [pathMap objectForKey:host];
-            
-            if([presenter conformsToProtocol:@protocol(MMTCPresenterProtocol)]) {
-                return [presenter presenterForURL:URL];
-            }
-            
-            return presenter;
-        }
-    }
-    
-    return nil;
-
+    return [super presenterForKey:lastPathComponent URL:URL];
 }
 
 #pragma mark -
@@ -86,15 +49,12 @@ NSString *MMTCLaunchURLHandlerShowViewControllerBlue = @"blue";
 -(instancetype)initWithNavigationController:(UINavigationController*)navigationController
 {
     NSParameterAssert(navigationController != nil);
+
+    NSDictionary *pathMap = @{MMTCLaunchURLHandlerShowViewControllerRed : [self pushRedPresentableWithNavigationController:navigationController],
+                              MMTCLaunchURLHandlerShowViewControllerBlue : [self pushBluePresentableWithNavigationController:navigationController]};
+
     
-    self = [super init];
-    
-    if(self) {
-        _navigationController = navigationController;
-        
-        _pathMap = @{MMTCLaunchURLHandlerShowViewControllerRed : [self pushRedPresentable],
-                     MMTCLaunchURLHandlerShowViewControllerBlue : [self pushBluePresentable]};
-    }
+    self = [super initWithMap:pathMap];
     
     return self;
 }

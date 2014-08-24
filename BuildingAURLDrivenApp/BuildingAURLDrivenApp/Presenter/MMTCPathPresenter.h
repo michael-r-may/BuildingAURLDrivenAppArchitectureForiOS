@@ -6,7 +6,8 @@
 #import <Foundation/Foundation.h>
 
 #import "MMTCPresenterProtocol.h"
+#import "MMTCPresenterBase.h"
 
-@interface MMTCPathPresenter : NSObject <MMTCPresenterProtocol>
+@interface MMTCPathPresenter : MMTCPresenterBase <MMTCPresenterProtocol>
 
 @end

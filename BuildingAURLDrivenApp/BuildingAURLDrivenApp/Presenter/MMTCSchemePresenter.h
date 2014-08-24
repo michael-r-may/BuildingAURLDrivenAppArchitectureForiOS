@@ -6,8 +6,9 @@
 #import <Foundation/Foundation.h>
 
 #import "MMTCPresenterProtocol.h"
+#import "MMTCPresenterBase.h"
 
-@interface MMTCSchemePresenter : NSObject <MMTCPresenterProtocol>
+@interface MMTCSchemePresenter : MMTCPresenterBase <MMTCPresenterProtocol>
 
 extern NSString *MMTCLaunchURLHandlerScheme;
 extern NSString *MMTCMailToScheme;

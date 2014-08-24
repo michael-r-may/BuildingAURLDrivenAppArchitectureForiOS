@@ -7,43 +7,16 @@
 #import "MMTCHostPresenter.h"
 #import "MMTCMailToPresenter.h"
 
-@interface MMTCSchemePresenter ()
-@property (nonatomic, strong, readonly) NSDictionary *schemeMap;
-@end
-
 @implementation MMTCSchemePresenter
 
 NSString *MMTCLaunchURLHandlerScheme = @"mmtc";
 NSString *MMTCMailToScheme = @"mailto";
 
--(NSString*)schemeFromURL:(NSURL*)URL
-{
-    NSURLComponents *components = [[NSURLComponents alloc] initWithURL:URL resolvingAgainstBaseURL:NO];
-    if(components == nil) return nil;
-    
-    NSString *scheme = [components scheme];
-    return scheme;
-}
-
 -(id<MMTCPresentableProtocol>)presenterForURL:(NSURL*)URL
 {
     NSString *schemeFromURL = [self schemeFromURL:URL];
-    NSDictionary *schemeMap = self.schemeMap;
-    NSArray *allKnownSchemes = [schemeMap allKeys];
     
-    for(NSString *scheme in allKnownSchemes) {
-        if([scheme caseInsensitiveCompare:schemeFromURL] == NSOrderedSame) {
-            id presenter = [schemeMap objectForKey:scheme];
-            
-            if([presenter conformsToProtocol:@protocol(MMTCPresenterProtocol)]) {
-                return [presenter presenterForURL:URL];
-            }
-            
-            return presenter;
-        }
-    }
-    
-    return nil;
+    return [self presenterForKey:schemeFromURL URL:URL];
 }
 
 #pragma mark - 
@@ -51,13 +24,13 @@ NSString *MMTCMailToScheme = @"mailto";
 -(instancetype)initWithNavigationController:(UINavigationController *)navigationController
 {
     NSParameterAssert(navigationController != nil);
-    
-    self = [super init];
-    
-    if(self) {
-        _schemeMap = @{MMTCLaunchURLHandlerScheme : [MMTCHostPresenter presenterWithNavigationController:navigationController],
-                       MMTCMailToScheme : [MMTCMailToPresenter presenterWithNavigationController:navigationController]};
-    }
+
+    NSDictionary *schemeMap = @{
+    MMTCLaunchURLHandlerScheme : [MMTCHostPresenter presenterWithNavigationController:navigationController],
+    MMTCMailToScheme : [MMTCMailToPresenter presenterWithNavigationController:navigationController]
+    };
+
+    self = [super initWithMap:schemeMap];
     
     return self;
 }
