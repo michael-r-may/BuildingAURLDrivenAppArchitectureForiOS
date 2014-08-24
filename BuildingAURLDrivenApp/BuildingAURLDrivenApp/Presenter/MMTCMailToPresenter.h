@@ -5,8 +5,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MMTCPresentable.h"
+#import "MMTCPresenterProtocol.h"
 
-@interface MMTCPushPresentable : MMTCPresentable
+@interface MMTCMailToPresenter : NSObject <MMTCPresenterProtocol>
 
 @end

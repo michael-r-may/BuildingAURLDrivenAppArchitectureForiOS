@@ -33,12 +33,17 @@
 
 // Return YES if the delegate successfully handled the request or NO if the attempt to open the URL resource failed.
 // See https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html
--(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+-(BOOL)application:(UIApplication *)application
+           openURL:(NSURL *)url
+ sourceApplication:(NSString *)sourceApplication
+        annotation:(id)annotation
 {
     return [[self launchURLHandler] openURL:url
                           sourceApplication:sourceApplication
                                  annotation:annotation];
 }
+
+
 
 -(instancetype)init
 {

@@ -5,7 +5,16 @@
 
 #import "MMTCViewController.h"
 
+#import "MMTCLaunchURLTrigger.h"
+
 @implementation MMTCViewController
+
+-(IBAction)sendEmailButtonPressed:(id)sender
+{
+    [MMTCLaunchURLTrigger startMailTo];
+}
+
+#pragma mark -
 
 -(instancetype)init
 {

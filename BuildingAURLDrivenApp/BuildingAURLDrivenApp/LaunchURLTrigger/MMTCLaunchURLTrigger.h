@@ -5,8 +5,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MMTCPresentable.h"
+@interface MMTCLaunchURLTrigger : NSObject
 
-@interface MMTCPushPresentable : MMTCPresentable
++(void)startMailTo;
 
 @end

@@ -5,6 +5,7 @@
 
 #import "MMTCSchemePresenter.h"
 #import "MMTCHostPresenter.h"
+#import "MMTCMailToPresenter.h"
 
 @interface MMTCSchemePresenter ()
 @property (nonatomic, strong, readonly) NSDictionary *schemeMap;
@@ -13,6 +14,7 @@
 @implementation MMTCSchemePresenter
 
 NSString *MMTCLaunchURLHandlerScheme = @"mmtc";
+NSString *MMTCMailToScheme = @"mailto";
 
 -(NSString*)schemeFromURL:(NSURL*)URL
 {
@@ -42,7 +44,6 @@ NSString *MMTCLaunchURLHandlerScheme = @"mmtc";
     }
     
     return nil;
-
 }
 
 #pragma mark - 
@@ -54,7 +55,8 @@ NSString *MMTCLaunchURLHandlerScheme = @"mmtc";
     self = [super init];
     
     if(self) {
-        _schemeMap = @{MMTCLaunchURLHandlerScheme : [MMTCHostPresenter presenterWithNavigationController:navigationController]};
+        _schemeMap = @{MMTCLaunchURLHandlerScheme : [MMTCHostPresenter presenterWithNavigationController:navigationController],
+                       MMTCMailToScheme : [MMTCMailToPresenter presenterWithNavigationController:navigationController]};
     }
     
     return self;

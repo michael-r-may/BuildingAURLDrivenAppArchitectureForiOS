@@ -5,8 +5,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MMTCPresentable.h"
+#import "MMTCPushPresentable.h"
 
-@interface MMTCPushPresentable : MMTCPresentable
+@interface MMTCModalPresentable : MMTCPresentable
+
 
 @end
