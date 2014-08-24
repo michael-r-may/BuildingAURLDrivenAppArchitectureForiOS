@@ -1,13 +1,16 @@
 //
-//  Created by Developer on 2014/08/23.
+//  Created by Developer on 2014/08/24.
 //  Copyright (c) 2014 Michael May & Tim Chilvers. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-#import "MMTCPresenterProtocol.h"
+@protocol MMTCPresentableProtocol;
 
-@interface MMTCPresenter : NSObject <MMTCPresenterProtocol>
+@protocol MMTCPresenterProtocol <NSObject>
+@required
+
+-(id<MMTCPresentableProtocol>)presenterForURL:(NSURL*)URL;
 
 +(instancetype)presenterWithNavigationController:(UINavigationController*)navigationController;
 

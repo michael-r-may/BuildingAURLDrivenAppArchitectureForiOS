@@ -12,6 +12,11 @@
 		66C2153719A8EDB000D3515D /* MMTCColouredViewController+Builder.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2153619A8EDB000D3515D /* MMTCColouredViewController+Builder.m */; };
 		66C2153A19A8EF7200D3515D /* MMTCPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2153919A8EF7200D3515D /* MMTCPresenter.m */; };
 		66C2153D19A8F04C00D3515D /* MMTCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66C2153C19A8F04C00D3515D /* MMTCViewController.xib */; };
+		66C2154419A8FFA300D3515D /* MMTCViewControllersPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2154319A8FFA300D3515D /* MMTCViewControllersPresenter.m */; };
+		66C2154719A92EEB00D3515D /* MMTCSchemePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2154619A92EEB00D3515D /* MMTCSchemePresenter.m */; };
+		66C2154A19A9304100D3515D /* MMTCHostPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2154919A9304100D3515D /* MMTCHostPresenter.m */; };
+		66C2154E19A9D87300D3515D /* MMTCPathPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2154D19A9D87300D3515D /* MMTCPathPresenter.m */; };
+		66C2155219A9DB5A00D3515D /* MMTCPushPresentable.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C2155119A9DB5A00D3515D /* MMTCPushPresentable.m */; };
 		66E124E519A8DC0900099899 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E124E419A8DC0900099899 /* Foundation.framework */; };
 		66E124E719A8DC0900099899 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E124E619A8DC0900099899 /* CoreGraphics.framework */; };
 		66E124E919A8DC0900099899 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E124E819A8DC0900099899 /* UIKit.framework */; };
@@ -46,6 +51,18 @@
 		66C2153819A8EF7200D3515D /* MMTCPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMTCPresenter.h; path = Presenter/MMTCPresenter.h; sourceTree = "<group>"; };
 		66C2153919A8EF7200D3515D /* MMTCPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMTCPresenter.m; path = Presenter/MMTCPresenter.m; sourceTree = "<group>"; };
 		66C2153C19A8F04C00D3515D /* MMTCViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MMTCViewController.xib; sourceTree = "<group>"; };
+		66C2154219A8FFA300D3515D /* MMTCViewControllersPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMTCViewControllersPresenter.h; path = Presenter/MMTCViewControllersPresenter.h; sourceTree = "<group>"; };
+		66C2154319A8FFA300D3515D /* MMTCViewControllersPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMTCViewControllersPresenter.m; path = Presenter/MMTCViewControllersPresenter.m; sourceTree = "<group>"; };
+		66C2154519A92EEB00D3515D /* MMTCSchemePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMTCSchemePresenter.h; path = Presenter/MMTCSchemePresenter.h; sourceTree = "<group>"; };
+		66C2154619A92EEB00D3515D /* MMTCSchemePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMTCSchemePresenter.m; path = Presenter/MMTCSchemePresenter.m; sourceTree = "<group>"; };
+		66C2154819A9304100D3515D /* MMTCHostPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMTCHostPresenter.h; path = Presenter/MMTCHostPresenter.h; sourceTree = "<group>"; };
+		66C2154919A9304100D3515D /* MMTCHostPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMTCHostPresenter.m; path = Presenter/MMTCHostPresenter.m; sourceTree = "<group>"; };
+		66C2154B19A9D59600D3515D /* MMTCPresenterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMTCPresenterProtocol.h; path = Presenter/MMTCPresenterProtocol.h; sourceTree = "<group>"; };
+		66C2154C19A9D87300D3515D /* MMTCPathPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMTCPathPresenter.h; path = Presenter/MMTCPathPresenter.h; sourceTree = "<group>"; };
+		66C2154D19A9D87300D3515D /* MMTCPathPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMTCPathPresenter.m; path = Presenter/MMTCPathPresenter.m; sourceTree = "<group>"; };
+		66C2154F19A9DA6500D3515D /* MMTCPresentableProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MMTCPresentableProtocol.h; path = Presenter/MMTCPresentableProtocol.h; sourceTree = "<group>"; };
+		66C2155019A9DB5A00D3515D /* MMTCPushPresentable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMTCPushPresentable.h; path = Presenter/MMTCPushPresentable.h; sourceTree = "<group>"; };
+		66C2155119A9DB5A00D3515D /* MMTCPushPresentable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMTCPushPresentable.m; path = Presenter/MMTCPushPresentable.m; sourceTree = "<group>"; };
 		66E124E119A8DC0900099899 /* BuildingAURLDrivenApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuildingAURLDrivenApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66E124E419A8DC0900099899 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		66E124E619A8DC0900099899 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -106,8 +123,20 @@
 		66C2153B19A8EF8300D3515D /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				66C2154B19A9D59600D3515D /* MMTCPresenterProtocol.h */,
+				66C2154F19A9DA6500D3515D /* MMTCPresentableProtocol.h */,
+				66C2155019A9DB5A00D3515D /* MMTCPushPresentable.h */,
+				66C2155119A9DB5A00D3515D /* MMTCPushPresentable.m */,
 				66C2153819A8EF7200D3515D /* MMTCPresenter.h */,
 				66C2153919A8EF7200D3515D /* MMTCPresenter.m */,
+				66C2154519A92EEB00D3515D /* MMTCSchemePresenter.h */,
+				66C2154619A92EEB00D3515D /* MMTCSchemePresenter.m */,
+				66C2154819A9304100D3515D /* MMTCHostPresenter.h */,
+				66C2154919A9304100D3515D /* MMTCHostPresenter.m */,
+				66C2154C19A9D87300D3515D /* MMTCPathPresenter.h */,
+				66C2154D19A9D87300D3515D /* MMTCPathPresenter.m */,
+				66C2154219A8FFA300D3515D /* MMTCViewControllersPresenter.h */,
+				66C2154319A8FFA300D3515D /* MMTCViewControllersPresenter.m */,
 			);
 			name = Presenter;
 			sourceTree = "<group>";
@@ -313,9 +342,14 @@
 				66E1252D19A8DEAD00099899 /* MMTCAppDelegate.m in Sources */,
 				66C2153A19A8EF7200D3515D /* MMTCPresenter.m in Sources */,
 				66E1251E19A8DD6800099899 /* MMTCLaunchURLHandler.m in Sources */,
+				66C2154E19A9D87300D3515D /* MMTCPathPresenter.m in Sources */,
+				66C2154A19A9304100D3515D /* MMTCHostPresenter.m in Sources */,
+				66C2154719A92EEB00D3515D /* MMTCSchemePresenter.m in Sources */,
 				66C2153719A8EDB000D3515D /* MMTCColouredViewController+Builder.m in Sources */,
+				66C2154419A8FFA300D3515D /* MMTCViewControllersPresenter.m in Sources */,
 				66C2152719A8ECC500D3515D /* MMTCColouredViewController.m in Sources */,
 				66E1252519A8DDE700099899 /* main.m in Sources */,
+				66C2155219A9DB5A00D3515D /* MMTCPushPresentable.m in Sources */,
 				66E1252E19A8DEAD00099899 /* MMTCViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

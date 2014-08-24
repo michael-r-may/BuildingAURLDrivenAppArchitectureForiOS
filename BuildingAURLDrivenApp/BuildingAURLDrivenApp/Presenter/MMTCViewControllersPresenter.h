@@ -7,8 +7,6 @@
 
 #import "MMTCPresenterProtocol.h"
 
-@interface MMTCPresenter : NSObject <MMTCPresenterProtocol>
-
-+(instancetype)presenterWithNavigationController:(UINavigationController*)navigationController;
+@interface MMTCViewControllersPresenter : NSObject <MMTCPresenterProtocol>
 
 @end

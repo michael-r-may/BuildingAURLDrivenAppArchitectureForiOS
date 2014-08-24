@@ -5,74 +5,27 @@
 
 #import "MMTCLaunchURLHandler.h"
 #import "MMTCPresenter.h"
+#import "MMTCPresentableProtocol.h"
 
 @interface MMTCLaunchURLHandler ()
+@property (nonatomic, strong, readonly) NSDictionary *pathRootMap;
 @property (nonatomic, strong, readonly) MMTCPresenter *presenter;
 @end
 
 @implementation MMTCLaunchURLHandler
 
-NSString *MMTCLaunchURLHandlerScheme = @"mmtc";
-NSString *MMTCLaunchURLHandlerHost = @"localhost";
-NSString *MMTCLaunchURLHandlerShowViewControllers = @"viewcontrollers";
-
-NSString *MMTCLaunchURLHandlerShowViewControllerRed = @"red";
-NSString *MMTCLaunchURLHandlerShowViewControllerBlue = @"blue";
-
--(BOOL)openURLPathForShowingSpecificViewController:(NSString*)path
-{
-    if(path == nil) return NO;
-    if([path length] == 0) return NO;
-    
-    if([path caseInsensitiveCompare:MMTCLaunchURLHandlerShowViewControllerRed] == NSOrderedSame) {
-        [[self presenter] pushRedController];
-        return YES;
-    }
-    
-    if([path caseInsensitiveCompare:MMTCLaunchURLHandlerShowViewControllerBlue] == NSOrderedSame) {
-        [[self presenter] pushBlueController];
-        return YES;
-    }
-    
-    return NO;
-}
-
-// expecting /viewcontrollers/vcname
--(BOOL)openURLPathForShowingViewControllers:(NSString*)path
-{
-    if(path == nil) return NO;
-    if([path length] == 0) return NO;
-    
-    path = [path stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"/"]];
-    
-    NSArray *pathComponents = [path componentsSeparatedByString:@"/"];
-    if([pathComponents count] == 0) return NO;
-    
-    NSString *firstPathComponent = [pathComponents firstObject];
-    if([firstPathComponent caseInsensitiveCompare:MMTCLaunchURLHandlerShowViewControllers] != NSOrderedSame) return NO;
-
-    NSString *lastPathComponent = [pathComponents lastObject];
-    
-    return [self openURLPathForShowingSpecificViewController:lastPathComponent];
-}
-
 -(BOOL)openURL:(NSURL *)URL
 sourceApplication:(NSString *)sourceApplication
     annotation:(id)annotation
 {
-    if(URL == nil) return NO;
+    id<MMTCPresentableProtocol> presentable = [[self presenter] presenterForURL:URL];
     
-    NSURLComponents *components = [[NSURLComponents alloc] initWithURL:URL resolvingAgainstBaseURL:NO];
-    if(components == nil) return NO;
+    if(presentable) {
+        [presentable present];
+        return YES;
+    }
     
-    NSString *scheme = [components scheme];
-    if([scheme caseInsensitiveCompare:MMTCLaunchURLHandlerScheme] != NSOrderedSame) return NO;
-    
-    NSString *host = [components host];
-    if([host caseInsensitiveCompare:MMTCLaunchURLHandlerHost] != NSOrderedSame) return NO;
-    
-    NSString *path = [components path];
-    if([self openURLPathForShowingViewControllers:path]) return YES;
+    NSLog(@"Could not handle URL: %@", URL);
     
     return NO;
 }

@@ -5,26 +5,22 @@
 
 #import "MMTCPresenter.h"
 
-#import "MMTCColouredViewController+Builder.h"
+#import "MMTCSchemePresenter.h"
 
 @interface MMTCPresenter ()
-@property (nonatomic, weak, readonly) UINavigationController* navigationController;
+@property (nonatomic, strong, readonly) NSArray *topLevelPresenters;
 @end
 
 @implementation MMTCPresenter
 
--(void)pushRedController
+-(id<MMTCPresentableProtocol>)presenterForURL:(NSURL *)URL
 {
-    UIViewController *redController = [MMTCColouredViewController controllerWithRedBackgroundColor];
+    for(MMTCPresenter* topLevelPresenter in self.topLevelPresenters) {
+        id presenter = [topLevelPresenter presenterForURL:URL];
+        if(presenter) return presenter;
+    }
     
-    [[self navigationController] pushViewController:redController animated:YES];
-}
-
--(void)pushBlueController
-{
-    UIViewController *blueController = [MMTCColouredViewController controllerWithBlueBackgroundColor];
-    
-    [[self navigationController] pushViewController:blueController animated:YES];
+    return nil;
 }
 
 #pragma mark - 
@@ -36,7 +32,7 @@
     self = [super init];
     
     if(self) {
-        _navigationController = navigationController;
+        _topLevelPresenters = @[[MMTCSchemePresenter presenterWithNavigationController:navigationController]];
     }
     
     return self;

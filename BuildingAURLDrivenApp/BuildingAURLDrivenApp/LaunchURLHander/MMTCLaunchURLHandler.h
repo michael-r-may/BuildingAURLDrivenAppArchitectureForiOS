@@ -11,9 +11,6 @@
 
 @interface MMTCLaunchURLHandler : NSObject
 
-extern NSString *MMTCLaunchURLHandlerScheme;
-extern NSString *MMTCLaunchURLHandlerHost;
-
 -(BOOL)openURL:(NSURL *)url
  sourceApplication:(NSString *)sourceApplication
         annotation:(id)annotation;
