@@ -9,6 +9,5 @@
 
 @interface MMTCPresenter : NSObject <MMTCPresenterProtocol>
 
-+(instancetype)presenterWithNavigationController:(UINavigationController*)navigationController;
 
 @end
