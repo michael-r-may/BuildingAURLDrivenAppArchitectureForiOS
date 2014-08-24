@@ -7,6 +7,26 @@
 
 @implementation MMTCLaunchURLTrigger
 
++(void)launchBlueViewController
+{
+    NSURL *URL = [NSURL URLWithString:@"mmtc://localhost/viewcontrollers/blue"];
+    
+    [[[UIApplication sharedApplication] delegate] application:[UIApplication sharedApplication]
+                                                      openURL:URL
+                                            sourceApplication:@""
+                                                   annotation:nil];
+}
+
++(void)launchRedViewController
+{
+    NSURL *URL = [NSURL URLWithString:@"mmtc://localhost/viewcontrollers/red"];
+    
+    [[[UIApplication sharedApplication] delegate] application:[UIApplication sharedApplication]
+                                                      openURL:URL
+                                            sourceApplication:@""
+                                                   annotation:nil];
+}
+
 +(void)startMailTo
 {
     NSURL *mailToURL = [NSURL URLWithString:@"mailto:"];

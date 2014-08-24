@@ -7,6 +7,10 @@
 
 @interface MMTCLaunchURLTrigger : NSObject
 
++(void)launchBlueViewController;
+
++(void)launchRedViewController;
+
 +(void)startMailTo;
 
 @end

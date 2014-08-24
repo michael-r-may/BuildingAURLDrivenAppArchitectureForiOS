@@ -14,25 +14,62 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Colour At All" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8lb-4k-3KA">
-                    <rect key="frame" x="20" y="44" width="280" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can use the following URLs to launch the app into different states:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="8lb-4k-3KA">
+                    <rect key="frame" x="20" y="44" width="280" height="89"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="89" id="wUD-QL-NZ6"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrr-jp-DBI">
-                    <rect key="frame" x="20" y="269" width="280" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrr-jp-DBI">
+                    <rect key="frame" x="20" y="320" width="280" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Let's Email Someone">
+                    <state key="normal" title="Or...Let's Email Someone">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="sendEmailButtonPressed:" destination="-1" eventType="touchUpInside" id="Sc1-EV-eCs"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfe-Sy-w9O">
+                    <rect key="frame" x="20" y="159" width="280" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="mmtc://localhost/viewcontrollers/red">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="lanchRedViewController:" destination="-1" eventType="touchUpInside" id="Ra4-P4-V5c"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2p2-AP-Rm4">
+                    <rect key="frame" x="20" y="215" width="280" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="mmtc://localhost/viewcontrollers/blue">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="lanchBlueViewController:" destination="-1" eventType="touchUpInside" id="6lm-8P-DEU"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="2p2-AP-Rm4" firstAttribute="top" secondItem="dfe-Sy-w9O" secondAttribute="bottom" constant="26" id="0d9-ag-DeE"/>
+                <constraint firstItem="2p2-AP-Rm4" firstAttribute="leading" secondItem="jrr-jp-DBI" secondAttribute="leading" id="Hb3-Cw-yaO"/>
+                <constraint firstItem="2p2-AP-Rm4" firstAttribute="trailing" secondItem="dfe-Sy-w9O" secondAttribute="trailing" id="I7m-Cz-DbF"/>
+                <constraint firstAttribute="trailing" secondItem="8lb-4k-3KA" secondAttribute="trailing" constant="20" symbolic="YES" id="UUd-QW-Klb"/>
+                <constraint firstItem="8lb-4k-3KA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="44" id="WUf-6k-jsI"/>
+                <constraint firstItem="dfe-Sy-w9O" firstAttribute="top" secondItem="8lb-4k-3KA" secondAttribute="bottom" constant="26" id="YHX-bn-IKB"/>
+                <constraint firstItem="8lb-4k-3KA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="glr-6T-OKU"/>
+                <constraint firstItem="dfe-Sy-w9O" firstAttribute="leading" secondItem="2p2-AP-Rm4" secondAttribute="leading" id="kwL-Yo-Iyc"/>
+                <constraint firstItem="jrr-jp-DBI" firstAttribute="trailing" secondItem="2p2-AP-Rm4" secondAttribute="trailing" id="lXD-ia-99e"/>
+                <constraint firstItem="8lb-4k-3KA" firstAttribute="trailing" secondItem="dfe-Sy-w9O" secondAttribute="trailing" id="meP-8U-S20"/>
+                <constraint firstItem="dfe-Sy-w9O" firstAttribute="leading" secondItem="8lb-4k-3KA" secondAttribute="leading" id="mtd-1z-JWu"/>
+                <constraint firstItem="jrr-jp-DBI" firstAttribute="top" secondItem="2p2-AP-Rm4" secondAttribute="bottom" constant="75" id="zCk-g3-haK"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>

@@ -136,9 +136,9 @@
 			isa = PBXGroup;
 			children = (
 				66C2155619A9E45600D3515D /* Presentable */,
+				66C2154B19A9D59600D3515D /* MMTCPresenterProtocol.h */,
 				66C2153819A8EF7200D3515D /* MMTCPresenter.h */,
 				66C2153919A8EF7200D3515D /* MMTCPresenter.m */,
-				66C2154B19A9D59600D3515D /* MMTCPresenterProtocol.h */,
 				66C2154519A92EEB00D3515D /* MMTCSchemePresenter.h */,
 				66C2154619A92EEB00D3515D /* MMTCSchemePresenter.m */,
 				66C2154819A9304100D3515D /* MMTCHostPresenter.h */,

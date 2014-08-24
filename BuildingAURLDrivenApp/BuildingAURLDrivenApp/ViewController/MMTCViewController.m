@@ -14,6 +14,16 @@
     [MMTCLaunchURLTrigger startMailTo];
 }
 
+-(IBAction)lanchRedViewController:(id)sender
+{
+    [MMTCLaunchURLTrigger launchRedViewController];
+}
+
+-(IBAction)lanchBlueViewController:(id)sender
+{
+    [MMTCLaunchURLTrigger launchBlueViewController];
+}
+
 #pragma mark -
 
 -(instancetype)init
