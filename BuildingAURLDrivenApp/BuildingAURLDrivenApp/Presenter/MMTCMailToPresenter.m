@@ -15,14 +15,13 @@
 @property (nonatomic, weak, readonly) UINavigationController* navigationController;
 @end
 
-
 @implementation MMTCMailToPresenter
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller
           didFinishWithResult:(MFMailComposeResult)result
                         error:(NSError*)error
 {
-    
+    [MMTCModalPresentable dismiss:[self navigationController]];
 }
 
 #pragma mark -
@@ -33,7 +32,7 @@
         // if ([MFMailComposeViewController canSendMail]) << if NO present an error instead
         
         MFMailComposeViewController *composeViewController = [[MFMailComposeViewController alloc] init];
-//        [composeViewController setMailComposeDelegate:self];
+        [composeViewController setMailComposeDelegate:self];
         
         return composeViewController;
     };

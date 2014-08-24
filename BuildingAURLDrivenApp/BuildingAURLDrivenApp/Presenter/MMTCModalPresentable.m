@@ -23,4 +23,11 @@
     });
 }
 
++(void)dismiss:(UINavigationController*)navigationController
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [navigationController dismissViewControllerAnimated:YES completion:nil];
+    });
+}
+
 @end

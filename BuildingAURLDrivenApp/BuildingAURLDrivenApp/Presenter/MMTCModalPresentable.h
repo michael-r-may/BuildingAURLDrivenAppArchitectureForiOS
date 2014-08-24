@@ -9,5 +9,6 @@
 
 @interface MMTCModalPresentable : MMTCPresentable
 
++(void)dismiss:(UINavigationController*)navigationController;
 
 @end
